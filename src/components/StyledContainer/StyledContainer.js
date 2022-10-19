@@ -1,14 +1,12 @@
 import {
   StyledContainerBody,
   ImageContainer,
-  Image,
   SmileContainer,
   SmileOne,
   Circle,
   SmileTwo,
   SmileThree,
 } from './StyledContainer.styled';
-import map from '../../assets/images/map.png';
 import sprite from '../../assets/icons/icon-sprite.svg';
 import { useWindowDimensions } from '../../customHooks';
 import { breakPoints } from '../../libs/constants';
@@ -20,7 +18,6 @@ export function StyledContainer({ children }) {
     <StyledContainerBody>
       {windowDimensions.width >= breakPoints.TABLET && (
         <ImageContainer>
-          <Image src={map} alt="map" />
           <SmileContainer>
             <SmileTwo width="127" height="127">
               <use

@@ -3,6 +3,7 @@ import {
   mediaTablet,
   mediaDesktop,
 } from '../../functions/media';
+import map from '../../assets/images/map.png';
 
 export const StyledContainerBody = styled.div`
   width: 100%;
@@ -12,70 +13,53 @@ export const StyledContainerBody = styled.div`
 
 export const ImageContainer = styled.div`
   position: absolute;
-  top: -20px;
-  right: -36px;
-  overflow: hidden;
-  z-index: -5;
-  padding-left: 40px;
-  ${mediaTablet(`
-top: -200px;
-right: -364px;
-`)}
-`;
-
-export const Image = styled.img`
-  display: block;
-  width: 0;
-  height: 0;
   border-radius: 50%;
-  object-fit: fill;
-  z-index: -5;
+  z-index: -1;
   ${mediaTablet(`
-width: 976px;
 height: 976px;
+width: 976px;
+top: -20px;
+right: -464px;
+background-image: url(${map});
+background-repeat: no-repeat;
+background-position: center;
+background-size: 976px 976px;
 `)}
+  ${mediaDesktop(`
+  right: -364px;
+  `)}
 `;
 
 export const SmileOne = styled.svg`
   position: absolute;
   left: 32px;
-  top: -40px;
+  top: 30px;
   z-index: -1;
-  ${mediaTablet(`
-top: -80px;
-`)}
-  ${mediaDesktop(`
-top: -150px;
-`)}
 `;
 
 export const Circle = styled.svg`
   position: absolute;
   left: 214px;
-  top: -30px;
+  top: 20px;
   z-index: -1;
   ${mediaTablet(`
-top: -70px;
-left: 414px;
-`)}
+  left: 414px;
+  `)}
   ${mediaDesktop(`
-top: -160px;
-left: 714px;
-`)}
+  left: 714px;
+  `)}
 `;
 
 export const SmileContainer = styled.div`
   position: absolute;
-  left: 0;
-  top: 275px;
   ${mediaTablet(`
-top: 765px;
-left: 60px;
-`)}
+  top: 615px;
+  left: 60px;
+  `)}
   ${mediaDesktop(`
-top: 515px;
-left: 0;
-`)}
+  top: 515px;
+  left: -50px;
+  `)}
 `;
 
 export const SmileTwo = styled.svg`

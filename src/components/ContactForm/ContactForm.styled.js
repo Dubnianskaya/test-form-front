@@ -56,6 +56,15 @@ export const Button = styled.button`
   color: #ffffff;
   padding: 27px 52px;
   border: none;
+  margin-bottom: 114px;
+  ${mediaTablet(`
+  margin-bottom: 174px;
+  `)}
+  transition: transform 1s;
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
 `;
 
 export const textareaStyle = {
