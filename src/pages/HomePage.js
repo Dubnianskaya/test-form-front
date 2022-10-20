@@ -24,13 +24,13 @@ export function HomePage() {
   }, []);
 
   return (
-    <main>
+    <>
       <StyledContainer>
         <Container>
           <ContactForm />
         </Container>
       </StyledContainer>
       <Footer />
-    </main>
+    </>
   );
 }

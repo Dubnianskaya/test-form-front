@@ -1,17 +1,29 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { Toaster } from 'react-hot-toast';
+import { lazy } from 'react';
+import { Layout } from './components/Layout';
 import { HomePage } from './pages';
 import { GlobalStyles } from './styles/GlobalStyles';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+const createChunk = componentName => {
+  return lazy(() =>
+    import(`./pages/${componentName}`).then(module => ({
+      default: module[componentName],
+    }))
+  );
+};
+
+const MessagePage = createChunk('MessagePage');
 
 function App() {
   return (
     <>
       <GlobalStyles />
-      <Toaster />
       <Routes>
-        <Route path="/" element={<HomePage />}>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
           <Route path="*" element={<Navigate to="/" />} />
+          <Route path="message" element={<MessagePage />} />
         </Route>
       </Routes>
     </>

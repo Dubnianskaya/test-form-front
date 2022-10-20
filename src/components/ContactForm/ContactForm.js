@@ -5,6 +5,8 @@ import Form from 'react-bootstrap/Form';
 import toast from 'react-hot-toast';
 import { emailRegExp } from '../../libs/constants';
 import { addClient } from '../../services/clientsApi';
+import { useDispatch } from 'react-redux';
+import { messageReducer } from '../../redux/message';
 import {
   FormContainer,
   FormTitle,
@@ -17,10 +19,11 @@ import {
 } from './ContactForm.styled';
 
 const schema = yup.object().shape({
-  name: yup.string().required(),
+  name: yup.string().max(100).required(),
   mail: yup
     .string()
     .email()
+    .max(100)
     .required()
     .matches(emailRegExp, 'enter real email'),
   message: yup.string().required(),
@@ -28,11 +31,13 @@ const schema = yup.object().shape({
 
 export function ContactForm() {
   const [loading, setLoading] = useState(false);
+  const dispatch = useDispatch();
 
   const submitClientData = async data => {
     setLoading(true);
     try {
       await addClient(data);
+      dispatch(messageReducer.addMessage(data));
       setLoading(false);
       return toast.success(
         'Your message has been successfully sent!'

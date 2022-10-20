@@ -9,7 +9,7 @@ import {
 
 export const FormContainer = styled.div`
   width: 300px;
-  margin-top: 60px;
+  margin-top: 80px;
   margin-left: 10px;
   ${mediaTablet(`
   width: 557px;
